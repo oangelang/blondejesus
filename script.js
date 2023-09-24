@@ -67,9 +67,6 @@ async function displayData() {
 
 // Run the displayData function
 displayData();
-In the script.js, I've added a new function called changeColors. This function selects a random color from a predefined array and sets it as the background and text color. The function is called every second (1000 milliseconds) using setInterval.
-
-Replace your existing index.html and script.js with these updated versions and commit the changes. After GitHub Pages updates, the text and background colors should change every second.
 
 
 
