@@ -1,9 +1,12 @@
 // Array containing your specific text options
 const textArray = [
-    'send it',
-    'wow',
-    'lol',
-    'wanker',
+    'SEND ITTTTTT',
+    'wowwe',
+    'LOL',
+    'Wanker!',
+    'yoyoyo!',
+    'Amaze balls',
+    'innit?',
     'truetruetruetrue',
     'Senioritas?',
     'Angela is the GOAT',
@@ -26,25 +29,26 @@ async function fetchWindData() {
         const response = await fetch(url);
         const data = await response.json();
         const windSpeed = data.wind.speed;
-        return windSpeed;
+         // Convert wind speed from m/s to knots
+        const windSpeedInKnots = windSpeed * 1.94384;
+        return windSpeedInKnots.toFixed(2); // Round to two decimal places
     } catch (error) {
-        console.error("Error fetching wind data:", error);
+        console.error('Error:', error);
         return null;
     }
 }
 
-// Main function to display random text and wind data
+// Main function to display text and wind speed
 async function displayData() {
     const windSpeed = await fetchWindData();
-    
     let text = 'Today, Blonde Jesus thinks... ' + textArray[getRandomIndex(textArray.length)];
-
-    if (windSpeed !== null) {
-        text += `<br><br>The wind speed today is ${windSpeed} m/s.`;
-    }
     
+    if (windSpeed !== null) {
+        text += `<br><br>The wind speed today is ${windSpeed} knots.`;
+    }
+
     document.getElementById('randomText').innerHTML = text;
 }
 
-// Call the function to display data
+// Run the displayData function
 displayData();
