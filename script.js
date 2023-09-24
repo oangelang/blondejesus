@@ -39,36 +39,20 @@ async function fetchWindData() {
     }
 }
 
-// Function to change colors
-function changeColors() {
-    const colors = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'pink'];
-    const randomColor = colors[getRandomIndex(colors.length)];
-    document.body.style.backgroundColor = randomColor;
-
-    const textElement = document.getElementById('randomText');
-    const randomTextColor = colors[getRandomIndex(colors.length)];
-    textElement.style.color = randomTextColor;
-}
-
 // Main function to display text and wind speed
 async function displayData() {
     const windSpeed = await fetchWindData();
-    let text = 'Today, Blonde Jesus says... ' + textArray[getRandomIndex(textArray.length)];
+    let text = 'Today, Blonde Jesus thinks... ' + textArray[getRandomIndex(textArray.length)];
     
     if (windSpeed !== null) {
-        text += `<br><br>The wind speed today is ${windSpeed} knots.`;
+        text += `<br><br>The wind speed today is ${windSpeed} m/s.`;
     }
 
     document.getElementById('randomText').innerHTML = text;
-
-    // Call changeColors every 1 second (1000 milliseconds)
-    setInterval(changeColors, 1000);
 }
 
 // Run the displayData function
 displayData();
-
-
 
 
 
