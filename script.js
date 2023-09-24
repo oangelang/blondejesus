@@ -10,6 +10,7 @@ const textArray = [
     'truetruetruetrue',
     'Senioritas?',
     'Angela is the GOAT',
+    'Im a little fragile right now',
     'Coke whatevs',
     'Saweet!',
     'Did you like and subscribe?',
@@ -52,7 +53,7 @@ function changeColors() {
 // Main function to display text and wind speed
 async function displayData() {
     const windSpeed = await fetchWindData();
-    let text = 'Today, Blonde Jesus thinks... ' + textArray[getRandomIndex(textArray.length)];
+    let text = 'Today, Blonde Jesus says... ' + textArray[getRandomIndex(textArray.length)];
     
     if (windSpeed !== null) {
         text += `<br><br>The wind speed today is ${windSpeed} knots.`;
