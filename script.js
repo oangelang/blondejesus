@@ -53,3 +53,39 @@ async function displayData() {
 
 // Run the displayData function
 displayData();
+
+// Function to animate an image bouncing around the screen
+function animateImage() {
+    const img = document.createElement('img');
+    img.src = 'image.png'; // Use the uploaded image
+    img.style.position = 'absolute';
+    img.style.width = '100px'; // Adjust size as needed
+    img.style.height = '100px';
+    document.body.appendChild(img);
+    
+    let x = Math.random() * (window.innerWidth - 100);
+    let y = Math.random() * (window.innerHeight - 100);
+    let dx = 2;
+    let dy = 2;
+
+    function move() {
+        x += dx;
+        y += dy;
+        
+        if (x <= 0 || x + 100 >= window.innerWidth) {
+            dx = -dx;
+        }
+        if (y <= 0 || y + 100 >= window.innerHeight) {
+            dy = -dy;
+        }
+
+        img.style.left = x + 'px';
+        img.style.top = y + 'px';
+        requestAnimationFrame(move);
+    }
+
+    move();
+}
+
+// Start animation when the page loads
+window.onload = animateImage;
