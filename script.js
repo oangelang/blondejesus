@@ -57,7 +57,7 @@ displayData();
 // Function to animate an image bouncing around the screen
 function animateImage() {
     const img = document.createElement('img');
-    img.src = 'james falling.png'; // Use the uploaded image
+    img.src = 'image.png'; // Use the uploaded image
     img.style.position = 'absolute';
     img.style.width = '100px'; // Adjust size as needed
     img.style.height = '100px';
