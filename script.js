@@ -99,8 +99,8 @@ function startRainEffect() {
         const img = document.createElement('img');
         img.src = 'james falling.png'; // Use the uploaded image
         img.style.position = 'absolute';
-        img.style.width = '50px'; // Adjust size as needed
-        img.style.height = '50px';
+        img.style.width = '150px'; // Adjust size as needed
+        img.style.height = '150px';
         img.style.left = Math.random() * window.innerWidth + 'px';
         img.style.top = '-50px'; // Start above the screen
         document.body.appendChild(img);
