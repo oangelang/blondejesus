@@ -57,7 +57,7 @@ displayData();
 // Function to animate an image bouncing around the screen
 function animateImage() {
     const img = document.createElement('img');
-    img.src = 'image.png'; // Use the uploaded image
+    img.src = 'james falling.png'; // Use the uploaded image
     img.style.position = 'absolute';
     img.style.width = '100px'; // Adjust size as needed
     img.style.height = '100px';
@@ -88,4 +88,34 @@ function animateImage() {
 }
 
 // Start animation when the page loads
-window.onload = animateImage;
+window.onload = function() {
+    animateImage();
+    startRainEffect();
+};
+
+// Function to create a rain effect of falling images
+function startRainEffect() {
+    setInterval(() => {
+        const img = document.createElement('img');
+        img.src = 'james falling.png'; // Use the uploaded image
+        img.style.position = 'absolute';
+        img.style.width = '50px'; // Adjust size as needed
+        img.style.height = '50px';
+        img.style.left = Math.random() * window.innerWidth + 'px';
+        img.style.top = '-50px'; // Start above the screen
+        document.body.appendChild(img);
+
+        let fallSpeed = 2 + Math.random() * 3; // Random fall speed
+
+        function fall() {
+            let topPos = parseFloat(img.style.top);
+            if (topPos < window.innerHeight) {
+                img.style.top = topPos + fallSpeed + 'px';
+                requestAnimationFrame(fall);
+            } else {
+                img.remove(); // Remove the image when it reaches the bottom
+            }
+        }
+        fall();
+    }, 300); // Create a new falling image every 300ms
+}
